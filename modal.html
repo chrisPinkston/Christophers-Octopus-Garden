@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="gallery-styles.css" />
+  <style>
+    /* Gallery Styles */
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .gallery-container img {
+      max-width: 400px;
+      cursor: pointer;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-container img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(0, 0, 0);
+      color: #fff;
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+ 
+    .modal img {
+      max-width: 95%;
+      max-height: 70%;
+      margin-bottom: 20px;
+    }
+
+    .modal p {
+      font-size: 1.2em;
+      text-align: center;
+      padding: 0 20px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      cursor: pointer;
+      color: #fff;
+    }
+  </style>
+</head>
+<body><header> 
+    <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+    <nav class="gallery-mobile-menu">
+      <ul>
+        <li><a href="gallery.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav></header>
+  <!-- Gallery -->
+  <div class="gallery-container">
+    <img src="PraiseJesus/painting1.JPG" alt="Painting 1" data-description="Description of Painting 1">
+    <img src="PraiseJesus/painting2.JPG" alt="Painting 2" data-description="Description of Painting 2">
+    <img src="PraiseJesus/painting3.JPG" alt="Painting 3" data-description="Description of Painting 3">
+    <img src="PraiseJesus/painting4.JPG" alt="Painting 4" data-description="Description of Painting 4">
+    <img src="PraiseJesus/painting5.JPG" alt="Painting 5" data-description="Description of Painting 5">
+    <img src="PraiseJesus/painting6.JPG" alt="Painting 6" data-description="Description of Painting 6">
+    <img src="PraiseJesus/painting7.JPG" alt="Painting 7" data-description="Description of Painting 7">
+    <img src="PraiseJesus/painting8.JPG" alt="Painting 8" data-description="Description of Painting 8">
+    <img src="PraiseJesus/painting9.JPG" alt="Painting 9" data-description="Description of Painting 9">
+    <img src="PraiseJesus/painting10.JPG" alt="Painting 10" data-description="Description of Painting 10">
+    <img src="PraiseJesus/painting11.JPG" alt="Painting 11" data-description="Description of Painting 11">
+    <img src="PraiseJesus/painting12.JPG" alt="Painting 12" data-description="Description of Painting 12">
+    <img src="PraiseJesus/painting13.JPG" alt="Painting 13" data-description="Description of Painting 13">
+    <img src="PraiseJesus/painting14.JPG" alt="Painting 14" data-description="Description of Painting 14">
+    <img src="PraiseJesus/painting15.JPG" alt="Painting 15" data-description="Description of Painting 15">
+    <img src="PraiseJesus/painting16.JPG" alt="Painting 16" data-description="Description of Painting 16">
+    <img src="PraiseJesus/painting17.JPG" alt="Painting 17" data-description="Description of Painting 17">
+    <img src="PraiseJesus/painting18.JPG" alt="Painting 18" data-description="Description of Painting 18">
+    <img src="PraiseJesus/painting19.JPG" alt="Painting 19" data-description="Description of Painting 19">
+    <img src="PraiseJesus/painting20.JPG" alt="Painting 20" data-description="Description of Painting 20"> <!-- Add more images here -->
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <span class="close" id="close-modal">&times;</span>
+    <img id="modal-image" src="" alt="">
+    <p id="modal-description"></p>
+  </div>
+
+  <script>
+    // JavaScript for Modal Functionality
+    const galleryImages = document.querySelectorAll('.gallery-container img');
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const closeModal = document.getElementById('close-modal');
+
+    // Open Modal When an Image is Clicked
+    galleryImages.forEach(image => {
+      image.addEventListener('click', () => {
+        modal.style.display = 'flex'; // Show modal
+        modalImage.src = image.src; // Set modal image
+        modalDescription.textContent = image.getAttribute('data-description'); // Set modal description
+      });
+    });
+
+    // Close Modal
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Close Modal on Outside Click
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+  // Toggle visibility of the menu
+  if (mobileMenu.style.display === 'block') {
+    mobileMenu.style.display = 'none';
+  } else {
+    mobileMenu.style.display = 'block';
+  }
+});
+
+const galleryMobileMenu = document.querySelector('.gallery-mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+  // Toggle visibility of the menu
+  if (galleryMobileMenu.style.display === 'block') {
+    galleryMobileMenu.style.display = 'none';
+  } else {
+    galleryMobileMenu.style.display = 'block';
+  }
+});
+
+  </script>
+</body>
+</html>

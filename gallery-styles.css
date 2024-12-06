@@ -1,0 +1,329 @@
+body {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  /* background-color: #293b19; */
+  /* cursor: url("PraiseJesus/octopus-cursor.png"), auto; */
+  background-color: #fff;
+}
+
+header {
+  /* background-color: #1e1b19; */
+  color: #000000;
+  /* padding: 10px 0; */
+  margin-bottom: 0px;
+  font-size: large;
+  background-color: #ffffff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hamburger Menu Button */
+.menu-toggle {
+  font-size: 2.5em;
+  background: none;
+  border: none;
+  color: #a8a8a8;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  list-style: none;
+  /* padding: 10px; */
+}
+
+/* Mobile Navigation Menu */
+.gallery-mobile-menu {
+  display: none; /* Hidden by default */
+  position: relative;
+  /* top: 6vh;  */
+  right: 0;
+  background-color: #e1e1e1;
+  width: 100%;
+  list-style: none;
+  /* padding-bottom: 30px; */
+  /* border-top: 1px solid #ccc;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.galler-mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-mobile-menu li a {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2em;
+  list-style: none;
+}
+
+.gallery-mobile-menu li a:hover {
+  background-color: #e0e0e0;
+}
+
+.front-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: 16px; */
+  /* padding-top:20vh; */
+  height: 95vh;
+  background-image: url("metro.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.left-nav {
+  display: none;
+}
+
+#sig {
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+  width: 70vw;
+  /* height: 10vh; */
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  /* transition: transform 0.5s ease, left 0.5s ease, top 0.5s ease; */
+  position: relative;
+}
+
+.image-container {
+  /* width: 300px; This will be the maximum width */
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 5px; /* To ensure vertical spacing */
+}
+
+.image-container img {
+  max-width: 100%; /* Image will scale down if it's too wide */
+  height: auto; /* Adjust height automatically */
+  display: block; /* Remove any unwanted white space below the image */
+  margin: 0 auto; /* Center the image horizontally */
+  height: auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  padding: 20px; /* Add padding around the content */
+  font-family: monospace;
+  font-weight: 200;
+  font-size: 1.2em; /* Slightly smaller font for mobile */
+  text-align: center; /* Center-align text */
+}
+
+/* Show Only on Mobile */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Hide hamburger menu on desktop */
+  }
+
+  .mobile-menu {
+    display: flex; /* Replace with a desktop menu if needed */
+    position: static;
+    width: auto;
+    box-shadow: none;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .mobile-menu li {
+    border-bottom: none;
+  }
+
+  .mobile-menu li a {
+    padding: 0.5em 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  #sig {
+    display: none;
+  }
+
+  .about-mission {
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    max-width: 800px; /* Limit the content width */
+    margin: 0 auto; /* Center the container itself */
+    padding: 20px; /* Optional padding for spacing */
+    text-align: center; /* Center-align the text */
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    align-items: left; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    max-width: 800px; /* Limit the content width */
+    margin: 0 auto; /* Center the container itself */
+    padding: 20px; /* Optional padding for spacing */
+    text-align: center; /* Center-align the text */
+  }
+
+  /* Left Navigation Bar */
+  .left-nav {
+    display: block;
+    padding: 5px;
+    padding-left: 5vw;
+    padding-top: 5vh;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .left-nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+  }
+  .menu-toggle {
+    display: none; /* Hide hamburger menu on desktop */
+  }
+  .mobile-menu {
+    display: none; /* Replace with a desktop menu if needed */
+  }
+
+  .gallery-container {
+    display: flex;
+    flex-direction: column; /* Arrange images in a single column */
+    align-items: center; /* Center the column in the viewport */
+    max-width: 800px; /* Limit the gallery's width */
+    margin: 0 auto; /* Center the gallery on the page */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+  .gallery-container img {
+    max-width: 60%; /* Image fits within the container width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Add spacing between images */
+  }
+
+  .left-nav {
+    padding-left: 20vw;
+  }
+
+  .left-nav nav ul li {
+    list-style: none; /* Removes the bullet points */
+    padding: 10px; /* Removes extra space */
+    margin: 0; /* Removes extra margin */
+  }
+
+  .front-page {
+    padding: 0;
+    margin-top: 0;
+    height: 100;
+    width: 100vw;
+    /* background-image: url(front-gallery.png); */
+    background-size: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  #sig {
+    display: none;
+  }
+
+  .about-mission {
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    max-width: 800px; /* Limit the content width */
+    margin: 0 auto; /* Center the container itself */
+    padding: 20px; /* Optional padding for spacing */
+    text-align: center; /* Center-align the text */
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    align-items: left; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    max-width: 800px; /* Limit the content width */
+    margin: 0 auto; /* Center the container itself */
+    padding: 20px; /* Optional padding for spacing */
+    text-align: center; /* Center-align the text */
+  }
+
+  .left-nav {
+    display: block;
+    padding: 5px;
+    padding-left: 20vw;
+    padding-top: 5vh;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .left-nav nav ul li {
+    list-style: none; /* Removes the bullet points */
+    padding: 5px; /* Removes extra space */
+    margin: 0; /* Removes extra margin */
+  }
+
+  .front-page {
+    /* background-image: url(front-background.png); */
+    background-size: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+  }
+
+  .gallery-container {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  .gallery-container img {
+    max-width: 70%; /* Scale images to fit container */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center images horizontally */
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    padding: 20px; /* Add padding around the content */
+    font-family: monospace;
+    font-weight: 200;
+    font-size: 1.2em; /* Slightly smaller font for mobile */
+    text-align: center; /* Center-align text */
+  }
+}

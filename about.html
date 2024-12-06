@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christopher's Mission</title>
+    <link rel="stylesheet" href="gallery-styles.css" />
+  </head>
+  <body>
+    <header>
+      <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+      <nav class="gallery-mobile-menu">
+        <ul>
+          <li><a href="gallery.html">Home</a></li>
+          <li><a href="art.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div>
+      <a href="gallery.html"><img src="dark-sig.png" alt="" id="sig" /></a>
+    </div>
+    <!-- Left-side navigation bar -->
+    <div class="left-nav">
+      <div class="logo">
+        <a href="gallery.html"
+          ><img src="dark-sig.png" alt="" class="logo"
+        /></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="art.html">Portfolio</a></li>
+          <li><a href="about.html" style="color: green">My Mission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- create div for carosale front page. -->
+    <div class="about-mission">
+      <div class="mission">
+        <p style="margin-bottom: 0">
+          My greatest art piece is this gallery. Through my work, I strive to
+          address humanity’s most pressing challenges, such as curing diseases
+          and improving lives.
+          <span style="color: green; padding: 0; margin: 0; font-weight: bold"
+            >I am committed to donating 90% of all proceeds from this gallery to
+            research centers focused on solving these critical problems,
+            transforming art into a catalyst for tangible solutions.</span
+          >
+          <br />
+          <br />This gallery represents my belief that creativity can inspire
+          hope, healing, and progress. By sharing my art, I aim to empower
+          others to embrace their own creativity and join the collective effort
+          to tackle the challenges we face. Together, through art and action, we
+          can create a brighter, healthier future.
+        </p>
+        <br />
+      </div>
+
+      <div class="info">
+        <p>
+          My creativity draws inspiration from the remarkable masterpieces I’ve
+          admired, the infinite universe, and the intricate beauty of
+          consciousness and its interactions with other conscious entities (:
+        </p>
+      </div>
+
+      <div class="quote">
+        <p>
+          “The aim of art is to represent not the outward appearance of things,
+          but their inward significance.” <br />
+          – Aristotle
+        </p>
+        <br />
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <style>
+      .p {
+        padding: 0;
+        margin: 0;
+        margin-block-end: 0;
+        margin-block-start: 0;
+      }
+
+      #sig {
+        width: 100%;
+        height: auto;
+        padding-top: 3vh;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .mission {
+        align-items: left;
+        align-content: left;
+        text-align: left;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        font-family: monospace;
+        font-weight: 200;
+        font-size: 1.3em;
+      }
+
+      .quote {
+        align-items: left;
+        align-content: left;
+        text-align: left;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        font-family: monospace;
+        font-weight: 200;
+        font-size: 1.2em;
+      }
+
+      .info {
+        align-items: left;
+        align-content: left;
+        text-align: left;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        font-family: monospace;
+        font-weight: 200;
+        font-size: 1.2em;
+      }
+
+      @media (min-width: 1024px) {
+        #sig {
+          display: none;
+        }
+      
+      }
+    </style>
+  </body>
+</html>

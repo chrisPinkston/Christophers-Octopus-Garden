@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christopher's Gallery</title>
+    <link rel="stylesheet" href="gallery-styles.css" />
+    <style>
+      /* Gallery Styles */
+      .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .gallery-container img {
+        max-width: 400px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-container img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(255, 255, 255);
+        color: #323232;
+        z-index: 1000;
+        /* justify-content: center; */
+        /* align-items: center; */
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .modal-content {
+        flex-direction: column; /* Stack image and description vertically */
+      }
+
+      .modal img {
+        max-width: 100%;
+        max-height: 90%;
+        margin-bottom: 10px;
+        padding-top: 6.5vh;
+      }
+
+      .modal p {
+        font-size: 1.7em;
+        text-align: left;
+        padding-left: 20px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-weight: lighter;
+      }
+
+      #modal-title {
+        font-size: 2em;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 0.5em;
+      }
+
+      #modal-details {
+        font-size: 1.5em;
+        text-align: left;
+        color: #676767;
+        margin: 0.5em;
+      }
+
+      #modal-medium {
+        font-size: 1.5em;
+        text-align: left;
+        color: #656464;
+        margin: 0.5em;
+      }
+
+      .modal .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        cursor: pointer;
+        color: #434343;
+      }
+
+      @media (min-width: 1040px) {
+        .sig {
+          display: none;
+        }
+
+        .gallery-container img {
+          max-width: 600px;
+        }
+
+        .modal img {
+          max-width: 60%; /* Image occupies 60% of the screen width */
+          height: auto; /* Maintain aspect ratio and prevent overflow */
+          object-fit: contain; /* Prevent stretching */
+          margin: 0 auto; /* Center horizontally */
+        }
+
+        .modal-content {
+          display: flex;
+          flex-direction: row;
+          align-items: center; /* Vertically center image and description */
+          max-width: 100%; /* Limit modal width */
+          margin: 0 auto; /* Center the modal horizontally */
+          gap: 20px; /* Space between image and description */
+        }
+
+        /* Modal Description */
+        .modal-description {
+          flex: 1; /* Take up the remaining space */
+          text-align: left;
+        }
+
+        .modal-description p {
+          margin: 10px 0; /* Add spacing between text */
+        }
+
+        modal .close {
+          font-size: 3em;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .sig {
+          display: none;
+        }
+
+        .modal img {
+          width: auto; /* Image occupies 60% of the screen width */
+          height: 90vh; /* Maintain aspect ratio and prevent overflow */
+          object-fit: contain; /* Prevent stretching */
+          margin: 0 auto; /* Center horizontally */
+        }
+
+        .modal-content {
+          display: flex;
+          flex-direction: row;
+          align-items: center; /* Vertically center image and description */
+          max-width: 100%; /* Limit modal width */
+          margin: 0 auto; /* Center the modal horizontally */
+          gap: 20px; /* Space between image and description */
+        }
+
+        /* Modal Description */
+        .modal-description {
+          flex: 1; /* Take up the remaining space */
+          text-align: left;
+        }
+
+        .modal-description p {
+          margin: 10px 0; /* Add spacing between text */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+      <nav class="gallery-mobile-menu">
+        <ul>
+          <li><a href="gallery.html">Home</a></li>
+          <li><a href="about.html" style="color: green">My Mission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Left-side navigation bar -->
+    <div class="left-nav">
+      <div class="logo">
+        <a href="gallery.html"
+          ><img src="dark-sig.png" alt="" class="logo"
+        /></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="art.html">Portfolio</a></li>
+          <li><a href="about.html" style="color: green">My Mission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="logo">
+      <a href="gallery.html"><img src="dark-sig.png" alt="" class="sig" /></a>
+    </div>
+    <!-- Gallery -->
+    <div class="gallery-container">
+      <img
+        src="PraiseJesus/painting1.JPG"
+        alt="Painting 1"
+        data-description="'Conscious Universe'| 5ft x 3.5ft| Oil, Acrylic, Marker"
+      />
+      <img
+        src="PraiseJesus/painting2.JPG"
+        alt="Painting 2"
+        data-description="'White Cap Beach'| 3ft x 2ft| Acrylic"
+      />
+      <img
+        src="PraiseJesus/painting3.JPG"
+        alt="Painting 3"
+        data-description="'Teddy Roosevelt'| 1.5ft x 1ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting4.JPG"
+        alt="Painting 4"
+        data-description="'Dean Martin'| 4ft x 2.5ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting5.JPG"
+        alt="Painting 5"
+        data-description="'Modern Marcus Aurelius'| 4ft x 2.5ft| Spray Paint"
+      />
+      <img
+        src="PraiseJesus/painting6.JPG"
+        alt="Painting 6"
+        data-description="'Castel dell'Ovo'| 3.5ft x 2.5ft| Oil"
+      />
+      <img
+        src="santa-margareta.png"
+        alt="Painting 7"
+        data-description="'Santa margherita'| 3.5ft x3ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting8.JPG"
+        alt="Painting 8"
+        data-description="'Self Portrait'| 3.5ft x 3ft| Oil, Charcol"
+      />
+      <img
+        src="PraiseJesus/painting9.JPG"
+        alt="Painting 9"
+        data-description="'Cardboard Portrait'| 4ft x 2.5ft| Marker, Acrylic"
+      />
+      <img
+        src="PraiseJesus/painting10.JPG"
+        alt="Painting 10"
+        data-description="'Seine'| 3ft x 2ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting11.JPG"
+        alt="Painting 11"
+        data-description="'Fem'| 1ft x .5ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting12.JPG"
+        alt="Painting 12"
+        data-description="'Skull'| 1.5ft x 1ft| Watercolor"
+      />
+      <img
+        src="PraiseJesus/painting13.JPG"
+        alt="Painting 13"
+        data-description="'Self Portrait'| 1.5ft x 1ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting14.JPG"
+        alt="Painting 14"
+        data-description="'Abstract feminine'| 4ft x 3ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting15.JPG"
+        alt="Painting 15"
+        data-description="'Dwayne Michael Carter Jr.'| 1ft x .5ft| Oil "
+      />
+      <img
+        src="PraiseJesus/painting16.JPG"
+        alt="Painting 16"
+        data-description="'Michael Gerard Tyson'| 4ft x 3ft| Spray Paint, Marker"
+      />
+      <img
+        src="PraiseJesus/painting18.JPG"
+        alt="Painting 18"
+        data-description="'Self Portrait'| 1.5ft x 1ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting19.JPG"
+        alt="Painting 19"
+        data-description="'Baklava'| 2ft x 1ft| Oil"
+      />
+      <img
+        src="PraiseJesus/painting20.JPG"
+        alt="Painting 20"
+        data-description="'The only thing we have to fear is fear itself'| 4ft x 3ft| Spray Paint, Marker"
+      />
+      <!-- Add more images here -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <span class="close" id="close-modal">&times;</span>
+      <div class="modal-content">
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-description">
+          <p id="modal-title"></p>
+          <p id="modal-details"></p>
+          <p id="modal-medium"></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript for Modal Functionality
+      const galleryImages = document.querySelectorAll(".gallery-container img");
+      const modal = document.getElementById("modal");
+      const modalImage = document.getElementById("modal-image");
+      const modalDescription = document.getElementById("modal-description");
+      const closeModal = document.getElementById("close-modal");
+
+      // Open Modal When an Image is Clicked
+      galleryImages.forEach((image) => {
+        image.addEventListener("click", () => {
+          modal.style.display = "flex"; // Show modal
+          modalImage.src = image.src; // Set modal image\
+          // modalDescription.textContent = image.getAttribute('data-description'); // Set modal description
+
+          // Split the data-description into title and details
+          const descriptionParts = image
+            .getAttribute("data-description")
+            .split("|");
+          const title = descriptionParts[0];
+          const details = descriptionParts[1];
+          const medium = descriptionParts[2];
+
+          // Set modal content
+          document.getElementById("modal-title").textContent = title;
+          document.getElementById("modal-details").textContent = details;
+          document.getElementById("modal-medium").textContent = medium;
+        });
+      });
+
+      // Close Modal
+      closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // Close Modal on Outside Click
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        // Toggle visibility of the menu
+        if (mobileMenu.style.display === "block") {
+          mobileMenu.style.display = "none";
+        } else {
+          mobileMenu.style.display = "block";
+        }
+      });
+
+      const galleryMobileMenu = document.querySelector(".gallery-mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        // Toggle visibility of the menu
+        if (galleryMobileMenu.style.display === "block") {
+          galleryMobileMenu.style.display = "none";
+        } else {
+          galleryMobileMenu.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

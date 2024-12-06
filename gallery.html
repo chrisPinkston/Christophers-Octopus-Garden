@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Art Gallery</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christoper's Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+   
     <header>
-        <h1>Your Art Gallery</h1>
+      <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+      <nav class="mobile-menu">
+        <ul>
+          <li><a href="art.html">Portfolio</a></li>
+          <li><a href="about.html" style="color: green">My Mission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </header>
-    <main>
-        <section class="gallery">
-            <figure>
-                <img src="path/to/your/art1.jpg" alt="Artwork 1">
-                <figcaption>Artwork 1 Description</figcaption>
-            </figure>
-            <!-- Repeat for other artworks -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-    </footer>
-</body>
+    <div class="front-page" id="front-page">
+      <!-- <img src="dark-sig.png" alt="signature" id="sig"/> -->
+      <!-- <img src="metro.png" alt="png image" id="cover"/> -->
+    </div>
+ <!-- Left-side navigation bar -->
+ <div class="left-nav">
+  <div class="logo">
+    <img src="dark-sig.png" alt="Logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="art.html">Portfolio</a></li>
+      <li><a href="about.html" style="color: green">My Mission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+    <script src="script.js"></script>
+  </body>
 </html>
